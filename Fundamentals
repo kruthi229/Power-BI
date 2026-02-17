@@ -1,0 +1,126 @@
+📊 Power BI Foundations – Data Modeling & Analytics Concepts
+
+🔹 Overview
+This repository documents my foundational understanding of Power BI, including data transformation, modeling, DAX calculations, and dashboard design principles. The focus is on building structured analytical thinking rather than just creating visuals.
+
+🔹 Power BI Workflow
+
+Power BI follows a structured Business Intelligence workflow:
+Data Import – Load data from Excel, CSV, or databases.
+Data Transformation (Power Query) – Clean and shape data before analysis.
+Data Modeling – Define relationships between tables.
+Measure Creation (DAX) – Create dynamic calculations.
+Visualization & Dashboard Design – Build interactive reports for decision-making.
+Understanding this workflow ensures reliable and scalable reporting.
+
+🔹 Data Transformation (Power Query)
+
+Power Query is used to clean and prepare data before analysis.
+
+Common transformations:
+Removing duplicates
+Changing data types
+Splitting and merging columns
+Filtering unnecessary rows
+Handling missing values
+Renaming columns for clarity
+
+Clean data ensures accurate aggregations and prevents misleading insights.
+
+🔹 Data Modeling Concepts
+
+Fact Table: Contains measurable data (e.g., sales amount, time spent, quantity).
+Dimension Table: Contains descriptive attributes (e.g., user name, category, date).
+Relationships: Tables are connected using keys (commonly one-to-many relationships).
+
+Proper modeling:
+-Prevents duplication
+-Ensures correct aggregations
+-Enables effective filtering across tables
+
+🔹 Row Context vs Filter Context
+
+Understanding context is essential in Power BI.
+
+Row Context
+-Applies to calculated columns
+-Evaluates data row by row
+
+Filter Context
+-Applies to measures
+-Changes dynamically based on slicers and filters
+-Measures respond to filter context, while calculated columns are static once computed.
+
+🔹 Calculated Column vs Measure
+
+Calculated Column
+-Computed row by row
+-Stored in the data model
+-Used for row-level classification
+Example:
+Category Type = IF(Table[Value] > 10, "High", "Low")
+
+Measure
+-Calculated dynamically
+-Responds to slicers and filters
+-Used for aggregations
+Example:
+Total Value = SUM(Table[Value])
+
+Best practice:
+-Use calculated columns for categorization.
+-Use measures for totals, averages, ratios, and percentages.
+
+🔹 Basic DAX Concepts
+
+Common DAX functions:
+-SUM() – Aggregates numeric values
+-COUNT() – Counts rows
+-AVERAGE() – Computes mean value
+-IF() – Conditional logic
+-DIVIDE() – Safe division for ratio calculations
+
+Example:
+Percentage Contribution =
+DIVIDE(
+    SUM(Table[Value]),
+    CALCULATE(SUM(Table[Value]), ALL(Table))
+)
+
+🔹 Dashboard Design Principles
+
+Effective dashboards:
+-Highlight key KPIs at the top
+-Use bar charts for category comparison
+-Use line charts for trends over time
+-Avoid clutter and unnecessary visuals
+-Use slicers for interactivity
+
+Visualization choice should prioritize clarity over complexity.
+
+🔹 Performance Best Practices
+
+-Prefer measures over excessive calculated columns
+-Remove unnecessary columns from dataset
+-Maintain proper relationships
+-Perform transformations in Power Query instead of complex DAX where possible
+-Efficient data modeling improves scalability and performance.
+
+🔹 Reliability & Validation
+
+To ensure reliability:
+-Clean and validate data before modeling
+-Cross-check aggregated values with raw data
+-Avoid ambiguous relationships
+-Verify measure logic using small test cases
+-Reliable dashboards are built on verified data, not assumptions.
+
+🎯 Learning Outcome
+
+This repository demonstrates foundational knowledge of:
+
+Structured BI workflow
+Data cleaning and modeling
+Context-aware calculations
+Analytical thinking in dashboard design
+Performance-aware best practices
